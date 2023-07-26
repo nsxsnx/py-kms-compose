@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  py-kms:
+    image: py-kms
+    build:
+      context: ./py-kms/
+      dockerfile: ./docker/docker-py3-kms/Dockerfile
+    environment:
+      - WEBUI=1
+      - TZ=Europe/Moscow
+    restart: unless-stopped
+    ports:
+      - 1688:1688
+      - 80:8080
